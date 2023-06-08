@@ -17,7 +17,16 @@
     list-style: none;
 }
 
-.list>li>button {
-    width: 128px;
-    height: 48px;
+.nextPage,
+.prevPage {
+    width: 5rem;
+    height: 3rem;
+}
+
+.pageNumber {
+    /* height: 3rem;
+    width: 2rem;
+    line-height: 3rem;
+    font-size: 2rem;
+    border: 1px solid grey; */
 }

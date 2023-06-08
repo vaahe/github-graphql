@@ -1,6 +1,7 @@
 import { usePagination, DOTS } from "../hooks/usePagination";
 import { paginationType } from "../types";
 import styles from "../styles/Pagination.module.css";
+import { useState } from "react";
 
 export const Pagination = (props: any) => {
   const {
@@ -31,6 +32,10 @@ export const Pagination = (props: any) => {
     onPageChange(currentPage - 1);
   };
 
+  const onRandom = () => {
+    console.log("sdf");
+  };
+
   const lastPage = paginationRange[paginationRange?.length - 1];
   const firstPage = paginationRange[0];
 
@@ -38,7 +43,11 @@ export const Pagination = (props: any) => {
     <nav className={styles.container}>
       <ul className={styles.list}>
         <li>
-          <button onClick={onPrevious} disabled={currentPage === firstPage}>
+          <button
+            className={styles.prevPage}
+            onClick={onPrevious}
+            disabled={currentPage === firstPage}
+          >
             <span>Previous</span>
           </button>
         </li>
@@ -50,17 +59,18 @@ export const Pagination = (props: any) => {
             }
 
             return (
-              <li
-                key={`page_${pageNumber}`}
-                onClick={() => onPageChange(pageNumber)}
-              >
-                {pageNumber}
+              <li className={styles.pageNumber} key={`page_${pageNumber}`}>
+                <button onClick={onRandom}>{pageNumber}</button>
               </li>
             );
           })}
 
         <li>
-          <button onClick={onNext} disabled={currentPage === lastPage}>
+          <button
+            className={styles.nextPage}
+            onClick={onNext}
+            disabled={currentPage === lastPage}
+          >
             <span>Next</span>
           </button>
         </li>

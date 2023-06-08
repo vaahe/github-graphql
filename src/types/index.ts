@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type paginationType = {
   pageSize: number;
   totalCount: number;
@@ -7,8 +9,8 @@ export type paginationType = {
 };
 
 export type repositoryType = {
-  id: number;
-  title: string;
-  userId: number;
-  completed: boolean;
+  name: string;
+  stargazerCount: number;
+  updatedAt: ReactNode;
+  url: string;
 };

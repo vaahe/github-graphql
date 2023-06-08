@@ -1,0 +1,9 @@
+.container {
+    width: 30%;
+    height: 20rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid red;
+}

@@ -29,21 +29,21 @@ export const usePagination = ({
       totalPageCount
     );
 
-    const shouldShowLeftDots = leftSiblingIndex > 2;
-    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
+    const shouldShowLeftDots = leftSiblingIndex > 7;
+    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 7;
 
     const firstPageIndex = 1;
     const lastPageIndex = totalPageCount;
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      const leftItemCount = 3 + 2 * siblingCount;
+      const leftItemCount = 7 + 2 * siblingCount;
       const leftRange = range(1, leftItemCount);
 
       return [...leftRange, DOTS, totalPageCount];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      const rightItemCount = 3 + 2 * siblingCount;
+      const rightItemCount = 7 + 2 * siblingCount;
       const rightRange = range(
         totalPageCount - rightItemCount + 1,
         totalPageCount

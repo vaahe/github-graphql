@@ -1,5 +1,5 @@
 import { Home } from "../pages/Home";
-import { Dashboard } from "../pages/RepositoryCard";
+import { RepositoryCard } from "../pages/RepositoryCard";
 import { RouteObject } from "react-router";
 
 export const routes: RouteObject[] = [
@@ -8,7 +8,7 @@ export const routes: RouteObject[] = [
     element: <Home />,
   },
   {
-    path: "/repository/:id",
-    element: <Dashboard />,
+    path: "/:username/:repository",
+    element: <RepositoryCard />,
   },
 ];
