@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { paginationType } from "../types";
 
 export const DOTS = "...";

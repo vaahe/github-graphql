@@ -1,30 +1,30 @@
-import {ReactNode} from "react";
+import { ReactNode } from "react";
 
 export type paginationType = {
-    pageSize: number;
-    totalCount: number;
-    currentPage: number;
-    siblingCount: number;
-    onPageChange?: (arg0: number) => number;
+  pageSize: number;
+  totalCount: number;
+  currentPage: number;
+  siblingCount: number;
+  onPageChange?: (arg0: number) => number;
 };
 
 export type repositoryType = {
-    name: string;
-    stargazerCount: number;
-    updatedAt: ReactNode;
-    url: string;
-    author?: object;
+  name: string;
+  stargazerCount: number;
+  updatedAt: ReactNode;
+  url: string;
+  author?: object;
 };
 
 export type RepositoryOwnerData = {
-    repository: {
-        owner: {
-            name: string;
-        };
+  repository: {
+    owner: {
+      name: string;
     };
+  };
 };
 
 export type RepositoryOwnerVariables = {
-    owner: string;
-    repoName: string;
+  owner: string;
+  repoName: string;
 };

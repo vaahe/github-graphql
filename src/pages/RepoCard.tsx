@@ -1,29 +1,30 @@
-import {useQuery} from "@apollo/client";
-import {FC} from "react";
-import {useParams} from "react-router";
-import {useNavigate} from "react-router-dom";
-import {GET_REPO_DETAILS} from "../graphql/queries";
-import {AiFillGithub} from "react-icons/ai";
-import {FaStar} from "react-icons/fa";
+import { FC } from "react";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 
+import { FaStar } from "react-icons/fa";
+import { AiFillGithub } from "react-icons/ai";
+import { IoArrowBackOutline } from "react-icons/io5";
+
+import { Loading } from "../components/Loading";
+import { GET_REPO_DETAILS } from "../graphql/queries";
 import styles from "../styles/RepoCard.module.css";
-import {Loading} from "../components/Loading";
-import {IoArrowBackOutline} from "react-icons/io5";
 
 export const RepoCard: FC = () => {
     const navigate = useNavigate();
-    const {username, repository} = useParams();
+    const { username, repository } = useParams();
 
     const handleBack = () => {
         navigate(-1);
     };
 
-    const {loading, error, data} = useQuery(GET_REPO_DETAILS, {
-        variables: {owner: username, name: repository},
+    const { loading, error, data } = useQuery(GET_REPO_DETAILS, {
+        variables: { owner: username, name: repository },
     });
 
     if (loading) {
-        return <Loading/>;
+        return <Loading />;
     }
 
     if (error) {
@@ -34,13 +35,13 @@ export const RepoCard: FC = () => {
 
     return (
         <div className={styles.container}>
-            <button className={styles.backBtn} onClick={handleBack}><IoArrowBackOutline/></button>
+            <button className={styles.backBtn} onClick={handleBack}><IoArrowBackOutline /></button>
             <div className={styles.page}>
                 <div className={styles.user}>
-                    <img src={repo?.owner?.avatarUrl} alt="Owner's Avatar"/>
+                    <img src={repo?.owner?.avatarUrl} alt="Owner's Avatar" />
                     <a href={repo?.owner?.url} className={styles.userName} target="_blank"
-                       title="Go to GitHub profile">
-                        <AiFillGithub/>
+                        title="Go to GitHub profile">
+                        <AiFillGithub />
                         <span>{repo?.owner?.login}</span>
                     </a>
                     <p>{repo?.owner?.name}</p>
@@ -50,7 +51,7 @@ export const RepoCard: FC = () => {
                     <div className={styles.repoHeader}>
                         <h2 className={styles.repoName}>{repo?.name}</h2>
                         <p title={"Stars count"}>
-                            <FaStar style={{color: "gold", paddingTop: "0.5rem"}}/>
+                            <FaStar style={{ color: "gold", paddingTop: "0.5rem" }} />
                             <span>{repo?.stargazerCount}</span>
                         </p>
                     </div>

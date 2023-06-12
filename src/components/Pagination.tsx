@@ -1,7 +1,8 @@
-import {usePagination, DOTS} from "../hooks/usePagination";
-import {paginationType} from "../types";
+import { FC } from "react";
+
+import { paginationType } from "../types";
 import styles from "../styles/Pagination.module.css";
-import {FC} from "react";
+import { usePagination, DOTS } from "../hooks/usePagination";
 
 export const Pagination: FC<paginationType> = (props) => {
     const {

@@ -1,9 +1,9 @@
-import {useNavigate} from "react-router";
-import {MouseEvent, ReactNode, FC} from "react";
-import styles from "../styles/Repository.module.css";
+import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router";
+import { IoIosArrowForward } from "react-icons/io";
+import { MouseEvent, ReactNode, FC } from "react";
 
-import {FaStar} from "react-icons/fa";
-import {IoIosArrowForward} from "react-icons/io";
+import styles from "../styles/Repository.module.css";
 
 interface RepositoryProps {
     name: string;
@@ -34,9 +34,9 @@ export const Repository: FC<RepositoryProps> = (repository) => {
                     {repository?.name?.length > 20 ? repository?.name?.slice(0, 20) + '...' : repository?.name}
                 </h3>
                 <span className={styles.starField}>
-          <FaStar style={{color: "gold", margin: "0 .2rem"}}/>
+                    <FaStar style={{ color: "gold", margin: "0 .2rem" }} />
                     {repository?.stargazerCount}
-        </span>
+                </span>
             </div>
             <div className={styles.main}>
                 <h4>Author: {userName}</h4>
@@ -48,7 +48,7 @@ export const Repository: FC<RepositoryProps> = (repository) => {
                 <a href={repository?.url} className={styles.repoLink} target="_blank" onClick={handleClickLink}>
                     Source code on GitHub
                 </a>
-                <IoIosArrowForward/>
+                <IoIosArrowForward />
             </div>
         </div>
     );
