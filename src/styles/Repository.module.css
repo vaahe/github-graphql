@@ -5,5 +5,65 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid red;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+
+.container:hover {
+    transition: 0.2s ease-in-out;
+    box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
+}
+
+.header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0 0.5rem;
+    background-color: #24292f;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.main {
+    padding: 0 0.5rem;
+}
+
+.lastCommit {
+    font-size: 1.5rem;
+}
+
+.repoLink {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #24292f;
+    padding: 0.5rem;
+    color: #ffffff;
+    transition: all 0.2s ease-in;
+}
+
+svg {
+    transition: all 0.2s ease-in;
+}
+
+.footer:hover {
+    background-color: #20283E;
+}
+
+.footer:hover > svg {
+    font-size: 1.5rem;
+}
+
+.starField {
+    display: flex;
+    align-items: center;
 }

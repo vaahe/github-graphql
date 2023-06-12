@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import { repositoryType } from "../../../types";
 
 interface Repos {
@@ -13,7 +13,7 @@ export const repoSlice = createSlice({
   name: "repos",
   initialState,
   reducers: {
-    allRepos: (state, action) => {
+    allRepos: (state: Repos, action: PayloadAction<Repos>) => {
       state.allRepos.push(action.payload);
     },
   },

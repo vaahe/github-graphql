@@ -1,14 +1,19 @@
-import { Home } from "../pages/Home";
-import { RepositoryCard } from "../pages/RepositoryCard";
-import { RouteObject } from "react-router";
+import {GitHubLogin} from "../auth/GitHubLogin";
+import {Home} from "../pages/Home";
+import {RepoCard} from "../pages/RepoCard";
+import {RouteObject} from "react-router";
 
 export const routes: RouteObject[] = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/:username/:repository",
-    element: <RepositoryCard />,
-  },
+    {
+        path: "/",
+        element: <Home/>,
+    },
+    {
+        path: "/auth",
+        element: <GitHubLogin/>
+    },
+    {
+        path: "/:username/:repository",
+        element: <RepoCard/>,
+    },
 ];

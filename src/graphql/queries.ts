@@ -1,9 +1,10 @@
 import gql from "graphql-tag";
 
-export const GET_USER_REPOSITORIES = gql`
-  query ($username: String!, $pageSize: Int!, $cursor: String) {
-    user(login: $username) {
+export const GET_CURRENT_REPOSITORIES = gql`
+  query ($userName: String!, $pageSize: Int!, $cursor: String) {
+    user(login: $userName) {
       repositories(first: $pageSize, after: $cursor) {
+        totalCount
         pageInfo {
           endCursor
           hasNextPage
@@ -20,29 +21,64 @@ export const GET_USER_REPOSITORIES = gql`
 `;
 
 export const SEARCH_REPOSITORIES = gql`
-  query ($searchQuery: String!) {
-    search(query: $searchQuery, type: REPOSITORY, first: 10) {
-      nodes {
-        ... on Repository {
-          name
-          description
-          stargazerCount
-          forkCount
-          updatedAt
-          owner {
-            vaahe
+  query ($queryString: String!, $cursor: String) {
+    search(query: $queryString, type: REPOSITORY, first: 10, after: $cursor) {
+      repositoryCount
+      edges {
+        cursor
+        node {
+          ... on Repository {
+            name
+            stargazerCount
+            updatedAt
+            url
+            owner {
+              __typename
+              ... on User {
+                login
+              }
+              ... on Organization {
+                login
+              }
+            }
           }
         }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
       }
     }
   }
 `;
 
-export const GET_REPOSITORY_COUNT = gql`
-  query ($username: String!) {
-    user(login: $username) {
-      repositories {
-        totalCount
+export const GET_CURRENT_USER = gql`
+  query {
+    viewer {
+      login
+    }
+  }
+`;
+
+export const GET_REPO_DETAILS = gql`
+  query ($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
+      name
+      pushedAt
+      stargazerCount
+      description
+      owner {
+        avatarUrl
+        login
+        url
+        ... on User {
+          name
+        }
+      }
+      languages(first: 10) {
+        nodes {
+          name
+        }
       }
     }
   }
