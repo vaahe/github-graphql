@@ -1,0 +1,129 @@
+.page {
+    display: flex;
+    color: #20283E !important;
+    min-height: 100vh;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+}
+
+.user {
+    width: 30%;
+    min-height: 100%;
+    font-size: 1.5rem;
+    box-shadow: 10px 0 10px -2px #888;
+}
+
+.user > a, .user > p {
+    padding: 0 1rem;
+}
+
+.user > img {
+    width: 100%;
+}
+
+.user > p {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.userName {
+    font-size: 36px;
+    align-items: center;
+    transition: .1s ease-in;
+    display: inline-flex;
+    text-decoration: none;
+    vertical-align: middle;
+    color: #20283E;
+}
+
+.userName > span {
+    margin: 0 0 0.3rem 0.2rem;
+}
+
+.userName:hover {
+    color: #551a8b;
+    text-decoration: dashed;
+}
+
+.repoName {
+    text-align: start;
+    align-content: start;
+    margin: 0;
+}
+
+.repo {
+    width: 70%;
+    background-color: #eff1f3;
+    padding: 0 1rem;
+}
+
+.lastCommit {
+    display: flex;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.lastCommit > span {
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.repoHeader {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.description > span {
+    font-size: 1.2rem;
+}
+
+.languages {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    margin-top: 3rem;
+}
+
+.backBtn {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 2rem;
+    /*background-color: transparent;*/
+    color: #20283E;
+    transition: 0.2s ease-in;
+}
+
+.backBtn:hover {
+    color: #2954d7;
+    cursor: pointer;
+}
+
+.language {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.4rem 0.2rem 0;
+    box-shadow: 1px 1px 5px 1px rgba(145, 144, 144, 0.5);
+    text-align: center;
+    border-radius: 0.8rem;
+    background-color: #1b8ad0;
+    color: #ffffff;
+    font-weight: 500;
+}
